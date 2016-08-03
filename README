@@ -1,0 +1,69 @@
+= Building the Book
+
+== Setting up the Machine
+
+. Enable virtualization options for your processor if you haven't
+   (e.g. Intel VT-x in your BIOS).
+. Install https://sourceforge.net/projects/sshwindows/[OpenSSH] or
+   ensure otherwise that you have an SSH client (ssh.exe) -- e.g. via Git
+. Install https://www.virtualbox.org[VirtualBox]
+. Install https://www.vagrantup.com[Vagrant]
+. Install or make sure you have installed
+   http://www.microsoft.com/en-us/download/details.aspx?id=8328[Microsoft Visual C++ 2010 SP1 Redistributable Package (x86)]
+. Restart your computer after installing Vagrant
+
+== Starting a Build
+*If you have ssh.exe installed via Git you need
+to do this and the following command in a "`GIT bash`"*
+
+. Open a command line window and navigate to this directory.
+. Execute `vagrant up` to start the virtual Linux box for compiling the book.
+   The first time, this will download and install the image, it will take
+   quite some time depending on your computer's and network's
+   speed.
+. `vagrant ssh` into the box. Press return if you are prompted for a passphrase
+  and `vagrant` if prompted for a password.
+. `cd /vagrant` inside the box
+. `rake` builds all variants.
+
+You should now have the files
+
+* `book.pdf` (PDF version)
+* `book.epub` (EPUB version),
+* `book.mobi` (Kindle version), and
+* `book.html` (HTML version, note that this file also depends on
+  the `images` directory).
+
+in this directory.
+
+[TIP]
+====
+You can build individual variants only using `rake book:pdf` etc.
+====
+
+== Stopping the Machine
+
+If you want to shut down the virtualbox machine, `cd` into this directory and
+execute `vagrant halt`.
+
+[TIP]
+====
+If you don't need the box any longer, you can use
+`vagrant destroy`. Note that this command does not delete the original, downloaded Linux image from your `.vagrant.d` directory.
+====
+
+== Automatic Rebuild of HTML versions
+
+. On your host machine run
+  * `gem install listen -v '~> 2.9'`
+  * `gem install thor`
+  * `gem install celluloid -v '~> 0.16.0'`
+  * `gem install celluloid-io -v '~> 0.16.0'`
+
+. On your host machine run `listen -r -f 0.0.0.0:4000 -d source`.
+. On the guest machine run `guard -o 10.0.2.2:4000`. The IP 10.0.2.2 must be the IP of your host machine in the vagrant network. You can find it out by running `netstat -rn` in your guest machine.
+. On the host machine run `npm install` to install the gulp and browser_sync and then run `gulp serve`.
+
+These commands can also be called using `rake listen`, `rake watch` and `rake serve`, respectively.
+
+See http://stackoverflow.com/questions/28754943/guard-listen-on-with-vagrant/28920203#28920203

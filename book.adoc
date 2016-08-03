@@ -1,0 +1,24 @@
+= AsciiDoc E-Book Template
+:doctype:               book
+:toclevels:             3
+:toc:                   preamble
+:author:                John Doe
+:email:                 john.doe@example.com
+:front-cover-image:     image:titlepage.png[width=1753,height=2480]
+:username:              dummy
+:imagesdir:             images
+:source-highlighter:    pygments
+:source-language:       c
+:pygments-style:        friendly
+:icons:                 font
+:docinfo:
+:numbered:
+:notitle:
+:noheader:
+
+ifdef::html[]
+image:titlepage.png[width=1753,height=2480]
+endif::html[]
+
+include::source/01-introduction/01-introduction.adoc[]
+

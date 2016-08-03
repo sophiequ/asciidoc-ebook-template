@@ -1,0 +1,38 @@
+@import "fonts/lato";
+@import "settings/book";
+@import "components/asciidoc";
+@import "components/awesome-icons";
+@import "compass/css3/border-radius";
+
+ol, ul {
+    font-size: inherit;
+}
+
+.admonitionblock.warning p {
+    // font-weight: bold;
+}
+
+.colist > table {
+  tr > td:first-of-type {
+    vertical-align: top;
+  }
+  tr > td:last-of-type {
+    padding-top: 0;
+    font-size: $paragraph-font-size;
+    font-weight: $paragraph-font-weight;
+  }
+}
+
+
+.admonitionblock td.content {
+    font-size: $paragraph-font-size;
+    font-weight: $paragraph-font-weight;
+    line-height: $paragraph-line-height;
+    p {
+        font-size: 1em;
+    }
+}
+
+.admonitionblock td.icon .icon-warning:before {
+    color: rgb(170,50,70);
+}

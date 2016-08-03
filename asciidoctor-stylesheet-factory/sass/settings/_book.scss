@@ -1,0 +1,35 @@
+$body-font-family: Lato, sans-serif;
+
+@import "defaults";
+
+$header-font-family: Lato;
+$header-font-color: #1E67B6;
+$subheader-font-color: $header-font-color;
+$subheader-font-size: em-calc(18px);
+$subheader-font-weight: bold;
+
+$paragraph-font-size: em-calc(19px);
+$paragraph-font-weight: 300;
+$paragraph-line-height: 1.3;
+
+$primary-color: #1E67B6;
+$secondary-color: #e9e9e9;
+$alert-color: #c60f13;
+$success-color: #5da423;
+
+$code-color: rgba(0,0,0,0.9);
+
+$list-side-margin: 1.5em;
+
+$table-head-font-size: 1rem;
+$table-row-font-size: 1rem;
+$blockquote-cite-font-color: #222;
+$blockquote-font-color: #222;
+
+
+$h1-font-size: em-calc(44) ;
+$h2-font-size: em-calc(37) ;
+$h3-font-size: em-calc(27) ;
+$h4-font-size: em-calc(23) ;
+$h5-font-size: em-calc(20) ;
+$h6-font-size: 1em;
