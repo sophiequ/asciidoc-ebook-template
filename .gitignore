@@ -1,11 +1,11 @@
 .vagrant
-source-old
-pos2script-kf8.epub
-pos2script.epub
-pos2script.html
-pos2script.mobi
-pos2script.pdf
+book-kf8.epub
+book.epub
+book.html
+book.mobi
+book.pdf
 *.cache
 diag-*.png
 node_modules
 /images/*
+asciidoctor-stylesheet-factory/book.css

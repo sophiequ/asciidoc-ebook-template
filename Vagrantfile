@@ -77,6 +77,6 @@ Vagrant.configure("2") do |config|
     gem install bundler
     cd /vagrant
     bundle install
-    sudo apt-get install graphviz
+    sudo apt-get -y install graphviz
   SHELL
 end
